@@ -1,0 +1,20 @@
+set(CURL_INCLUDE_DIR ${SGAGENT_MODULE_PATH}/curl/include/)
+set(CURL_LIBRARY ${SGAGENT_MODULE_PATH}/curl/lib/libcurl.a)
+
+
+#message(${CURL_INCLUDE_DIRS})
+find_path(CURL_INCLUDE_DIR NAMES curl)
+find_library(CURL_LIBRARY NAMES curl)
+
+mark_as_advanced(CURL_LIBRARY CURL_INCLUDE_DIR)
+
+
+include(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(Curl REQUIRED_VARS CURL_LIBRARY CURL_INCLUDE_DIR)
+
+set(CURL_FOUND TRUE)
+if(CURL_FOUND)
+  set(CURL_INCLUDE_DIR ${CURL_INCLUDE_DIR})
+  set(CURL_LIBRARY ${CURL_LIBRARY})
+endif()
+

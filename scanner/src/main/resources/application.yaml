@@ -1,0 +1,9 @@
+zookeeper:
+  basePath: /octo/nameservice
+  #url: 127.0.0.1:2181
+
+executor:
+  alive:
+    threadCount: 16
+  dead:
+    threadCount: 16

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SGAgentMutableConf>
+    <!-- sg_agent appkey -->
+    <AgentAppKey>com.octo.mns.sg_agent</AgentAppKey>
+    <AgentLogPath>/octo/ns/sg_agent/log4cplus.conf</AgentLogPath>
+    <!-- sg_agent版本号 -->
+    <AgentVersion>sg_agent-open</AgentVersion>
+    <!-- sg_agent端口 -->
+    <AgentPort>5266</AgentPort>
+    <!-- MNS路径 -->
+    <DefaultMnsPath>/mns/sankuai/prod</DefaultMnsPath>
+    <!-- 服务注册线程 -->
+    <RegistryThreads>4</RegistryThreads>
+    <!-- client num -->
+    <ClientNum>4</ClientNum>
+    <!-- -->
+    <ClientThreads>1</ClientThreads>
+    <!-- -->
+    <WatcherPullThreads>4</WatcherPullThreads>
+    <!-- -->
+    <WatcherDispatchThreads>4</WatcherDispatchThreads>
+    <!-- -->
+    <FastGetThreads>4</FastGetThreads>
+    <!-- zk timeoout -->
+    <ZkTimeout>30000</ZkTimeout>
+    <!-- zk retry times-->
+    <RetryTimes>3</RetryTimes>
+    <!-- zk client nums -->
+    <ZkClientNum>2</ZkClientNum>
+    <!-- 0,zk;1,cache;2,mixer -->
+    <RegistryCenter>0</RegistryCenter>
+    <CacheAppKey>com.meituan.octo.mnsc</CacheAppKey>
+    <CacheDiscSwitch>0</CacheDiscSwitch>
+    <!-- mnsc server timeout-->
+    <MnscTimeOut>600000</MnscTimeOut>
+    <!-- zk server 列表 -->
+    <!-- MNS主机与端口 -->
+    <MnsHost>
+        <online>
+            <beijing>
+            127.0.0.1:2181
+            </beijing>
+            <shanghai>
+            127.0.0.1:2181
+            </shanghai>
+        </online>
+        <offline>
+            <beijing>
+            127.0.0.1:2181
+            </beijing>
+            <shanghai>
+            127.0.0.1:2181
+            </shanghai>
+        </offline>
+    </MnsHost>
+    <!-- MNSCache appkey -->
+    <MNSCacheAppkey>com.meituan.octo.mnsc</MNSCacheAppkey>
+    <!-- 是否打开selfCheck接口 -->
+    <OpenSelfCheck>open</OpenSelfCheck>
+    <!-- 是否打开MNSCache开关 -->
+    <OpenMNSCache>open</OpenMNSCache>
+    <!-- 是否打开动态自动归组 -->
+    <OpenAutoRoute>open</OpenAutoRoute>
+    <!-- 注册类型 -->
+    <RegistryEntry>0</RegistryEntry>
+    <!-- 服务发现类型 -->
+    <DiscoveryType>1</DiscoveryType>
+</SGAgentMutableConf>

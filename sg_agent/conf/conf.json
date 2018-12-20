@@ -1,0 +1,12 @@
+{
+  "MnsHost":"10.20.127.164:2181",
+  "server.Version":"3.0.0",
+  "server.ListenPort":5266,
+  "server.Appkey":"octo.nameing.mt.newct",
+  "server.register":0,
+  "server.WorkThreadNum":40,
+  "server.MaxConnNum":10000,
+  "server.ServerTimeOut":100,
+  "server.ConnGCTime":600,
+  "server.ConnThreadNum":4
+}

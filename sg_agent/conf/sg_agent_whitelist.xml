@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SGAgentWhiteListConf>
+    <AllEnvWhiteLists>
+        <Item>octo.naming.dorado</Item>
+        <Item>octo.naming.cthrift</Item>
+    </AllEnvWhiteLists>
+    <!-- cellar服务文件配置以服务端为准 -->
+    <CellarAppkeys>
+        <Item>octo.naming.server.testa</Item>
+        <Item>octo.naming.server.testb</Item>
+        <Item>octo.naming.server.testc</Item>
+        <Item>octo.naming.user</Item>
+        <Item>octo.naming.tair.</Item>
+    </CellarAppkeys>
+    <NoWatcherWhiteLists>
+        <Item>octo.naming.testa</Item>
+        <Item>octo.naming.testb</Item>
+        <Item>octo.naming.mnsc</Item>
+    </NoWatcherWhiteLists>
+    <RegisteUnlimitWhiteList>
+        <Item>octo.naming.testa</Item>
+        <Item>octo.naming.agent</Item>
+    </RegisteUnlimitWhiteList>
+    <!-- 线下test和ppe环境限制mac注册 -->
+    <MacRegisterUnlimitAppkeys>
+        <Item>octo.naming.testa</Item>
+        <Item>octo.naming.testb</Item>
+    </MacRegisterUnlimitAppkeys>
+    <MacRegisterUnlimitAppkeysIDC>
+        <Item>
+            <IP>10.0.0.0</IP>
+            <MASK>255.0.0.0</MASK>
+        </Item>
+    </MacRegisterUnlimitAppkeysIDC>
+</SGAgentWhiteListConf>

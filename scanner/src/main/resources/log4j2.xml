@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%15.15t] %-40.40c{1.} : %m%n%ex
+        </Property>
+        <Property name="LOG_FILE_PATH">octo-scanner/log</Property>
+    </Properties>
+    <Appenders>
+        <!-- Rolling File Appender -->
+        <RollingFile name="FileAppender" fileName="${LOG_FILE_PATH}/octo-scanner.log"
+                     filePattern="${LOG_FILE_PATH}/octo-scanner-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

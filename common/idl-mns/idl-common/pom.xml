@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <distributionManagement>
+        <repository>
+            <id>meituan-nexus-releases</id>
+            <name>Meituan Nexus Repository</name>
+            <url>http://maven.sankuai.com/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>meituan-nexus-snapshots</id>
+            <name>Meituan Nexus Repository</name>
+            <url>http://maven.sankuai.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <groupId>com.octo.service</groupId>
+    <artifactId>idl-common</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <java.version>1.7</java.version>
+        <commons-lang3.version>3.1</commons-lang3.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.thrift.tools</groupId>
+                <artifactId>maven-thrift-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

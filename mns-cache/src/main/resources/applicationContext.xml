@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <mvc:annotation-driven/>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.meituan.octo"/>
+    <bean id="booter" class="com.meituan.octo.mnsc.bootstrap.bootstrap" init-method="init"/>
+
+    <bean id="serviceProcessor" class="com.meituan.octo.mnsc.thrift.service.impl.MNSCacheServiceImpl">
+    </bean>
+
+    <bean id="serverPublisher" class="com.meituan.dorado.config.service.spring.ServiceBean">
+        <property name="serviceConfig">
+            <bean class="com.meituan.dorado.config.service.ServiceConfig">
+                <property name="serviceInterface"
+                          value="com.octo.mnsc.idl.thrift.service.MNSCacheService"/> <!-- 接口类 -->
+                <property name="serviceImpl" ref="serviceProcessor"/> <!-- 实现类 -->
+            </bean>
+        </property>
+        <property name="port" value="8830"/>
+        <!--<property name="registry" value="zookeeper://10.24.41.248:2188"/>-->
+        <property name="appkey" value="com.meituan.octo.mnsc"/>
+        <property name="registry" value="mns"/>
+    </bean>
+
+    <bean id="httpServerPublisher" class="com.meituan.octo.mns.http.HttpServerPublisher" init-method="publish" destroy-method="destroy">
+        <property name="appKey" value="com.meituan.octo.mnsc"/>
+        <property name="port" value="8911"/>
+    </bean>
+</beans>

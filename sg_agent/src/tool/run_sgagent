@@ -1,0 +1,15 @@
+#!/bin/sh
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/meituan/apps/sg_agent/libs
+export LD_LIBRARY_PATH
+
+ulimit -n 1000000
+ulimit -c 100000000
+
+cd /opt/meituan/apps/sg_agent
+
+#reboot sg_agent
+NUM=`ps -ef |grep -v grep | grep -c /opt/meituan/apps/sg_agent/sg_agent`
+if [ $NUM -lt 1 ]
+then
+    exec setuidgid octo /opt/meituan/apps/sg_agent/sg_agent > /dev/null 2>&1
+fi

@@ -52,13 +52,29 @@ mvn clean install -Dmaven.test.skip=true
 
 ### NSC部署
 ---
+依赖初始化  
+[Dorado依赖构建](https://github.com/Meituan-Dianping/octo-rpc/blob/master/dorado/dorado-doc/manual-developer/Compile.md)            
+ 
+~~~ 
+//idl-common依赖构建
+cd common/idl-mns/idl-common
+mvn clean install -Dmaven.test.skip=true
+  
+//idl-mnsc依赖构建
+cd common/idl-mns/idl-mnsc
+mvn clean install -Dmaven.test.skip=true
 
-依赖下载idl-common, idl-mnsc, dorado, NSInovker
-
+//NSInovker依赖下构建(若已构建，跳过)
+cd mns-invoker   
+mvn clean install -Dmaven.test.skip=true 
 ~~~
-cd octo-ns/mns-cache  
+
+部署运行 
+     
+~~~  
+cd mns-cache  
 sh run.sh  
-lsof -i:[port] //查看服务端口是否已启用
+lsof -i:[port] //查看服务端口是否已启用  
 ~~~
 
 ### 配置更新

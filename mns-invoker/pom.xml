@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.meituan.octo</groupId>
             <artifactId>idl-common</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

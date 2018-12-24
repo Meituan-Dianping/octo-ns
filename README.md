@@ -6,8 +6,7 @@
  是美团OCTO服务治理体系进行服务注册发现的套件，其基于zookeeper并由多个组件和服务组成，包括sdk
  (C++/Java)、
  服务治理代理SGAgent、服务缓存NSC、健康检查服务Scanner
- ，用户可搭配人性化的运营管理平台[octo-portal](https://github
- .com/Meituan-Dianping/octo-portal)实现可视化服务操作。
+ ，用户可搭配人性化的运营管理平台 [octo-portal](https://github.com/Meituan-Dianping/octo-portal) 实现可视化服务操作。
 
  octo-ns
  可帮助业务进行服务注册发现，自定义路由分组策略、健康检查等功能，通过它可快速的实现基本的服务治理功能，让用户专注于业务逻辑实现。octo-ns总体架构图如下:

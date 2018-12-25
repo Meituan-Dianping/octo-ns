@@ -58,9 +58,10 @@ object mnscCommon {
   //每个zk节点建立的zkClient数量, mns-zk对单台主机的连接数做了限制
   val singleHostCount4ZK = 2
 
+  val ENV = ProcessInfoUtil.getAppEnv.toLowerCase
+
   private var appkeys = List[String]()
 
-  private val ENV = ProcessInfoUtil.getAppEnv.toLowerCase
   private val appkeysPath = s"$rootPre/$ENV"
 
   private def getAppFromZK() = {

@@ -12,7 +12,6 @@
         <java.version>1.7</java.version>
         <jackson.version>2.9.5</jackson.version>
         <commons-lang3.version>3.1</commons-lang3.version>
-        <commons-lang.version>2.6</commons-lang.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <octo.maven.version>3.0.3</octo.maven.version>
         <octo.build.jvmsize>1024m</octo.build.jvmsize>
@@ -30,11 +29,6 @@
             <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>${commons-lang.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <version>${jackson.version}</version>
@@ -49,7 +43,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -138,12 +136,6 @@
                 </executions>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>${basedir}/src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <testResources>
             <testResource>
                 <directory>${basedir}/src/test/resources</directory>

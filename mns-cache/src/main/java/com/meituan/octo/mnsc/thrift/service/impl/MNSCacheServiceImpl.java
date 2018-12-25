@@ -36,7 +36,7 @@ public class MNSCacheServiceImpl implements MNSCacheService.Iface {
     public MNSResponse getMNSCache(String appkey, String version, String env) throws TException {
         if (!Env.isValid(env) || org.apache.commons.lang3.StringUtils.isEmpty(appkey)) {
             MNSResponse ret = new MNSResponse();
-            ret.setCode(Constants.ILLEGAL_ARGUMENT);
+            ret.setCode(mnsc_dataConstants.ILLEGAL_ARGUMENT);
             return ret;
         }
         return mnscService.getMnsc(appkey, version, env);
@@ -46,7 +46,7 @@ public class MNSCacheServiceImpl implements MNSCacheService.Iface {
     public MNSResponse getMNSCacheHttp(String appkey, String version, String env) throws TException {
         if (!Env.isValid(env) || org.apache.commons.lang3.StringUtils.isEmpty(appkey)) {
             MNSResponse ret = new MNSResponse();
-            ret.setCode(Constants.ILLEGAL_ARGUMENT);
+            ret.setCode(mnsc_dataConstants.ILLEGAL_ARGUMENT);
             return ret;
         }
         return mnscService.getMNSCache4HLB(appkey, version, env);
@@ -55,7 +55,7 @@ public class MNSCacheServiceImpl implements MNSCacheService.Iface {
     @Override
     public MNSBatchResponse getMNSCacheByAppkeys(List<String> appkeys, String protocol) throws TException {
         if (null == appkeys || StringUtils.isEmpty(protocol)) {
-            return new MNSBatchResponse().setCode(Constants.ILLEGAL_ARGUMENT);
+            return new MNSBatchResponse().setCode(mnsc_dataConstants.ILLEGAL_ARGUMENT);
         }
         return mnscService.getMNSCacheByAppkeys(appkeys, protocol);
     }
@@ -70,7 +70,7 @@ public class MNSCacheServiceImpl implements MNSCacheService.Iface {
     public MNSResponse getMNSCacheWithVersionCheck(MnsRequest mnsRequest) throws TException {
         if (null == mnsRequest || StringUtils.isEmpty(mnsRequest.getAppkey()) || !Env.isValid(mnsRequest.getEnv())) {
             MNSResponse invalidResponse = new MNSResponse();
-            invalidResponse.setCode(Constants.ILLEGAL_ARGUMENT);
+            invalidResponse.setCode(mnsc_dataConstants.ILLEGAL_ARGUMENT);
             return invalidResponse;
         }
         return mnscService.getMnsc(mnsRequest);

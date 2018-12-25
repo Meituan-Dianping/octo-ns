@@ -6,20 +6,7 @@
 
     <groupId>com.meituan.octo</groupId>
     <artifactId>mns-invoker</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-
-    <distributionManagement>
-        <repository>
-            <id>meituan-nexus-releases</id>
-            <name>Meituan Nexus Repository</name>
-            <url>http://maven.sankuai.com/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>meituan-nexus-snapshots</id>
-            <name>Meituan Nexus Repository</name>
-            <url>http://maven.sankuai.com/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <version>1.0.0</version>
 
     <properties>
         <java.version>1.7</java.version>
@@ -35,7 +22,7 @@
         <dependency>
             <groupId>com.meituan.octo</groupId>
             <artifactId>idl-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

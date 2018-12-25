@@ -45,7 +45,7 @@ object mnscService {
         getCache(req, Path.providerHttp.toString, appProviderHttpDataCache.getProviderHttpCache, appProviderHttpDataCache.updateProviderCache)
       case _ =>
         val result = new MNSResponse
-        result.setCode(Constants.ILLEGAL_ARGUMENT)
+        result.setCode(mnsc_dataConstants.ILLEGAL_ARGUMENT)
         result
     }
   }
@@ -57,7 +57,7 @@ object mnscService {
     val (zkVersion, _) = zk.getNodeVersion(path)
     cacheProviders match {
       case Some(item) =>
-        result.setCode(Constants.SUCCESS)
+        result.setCode(mnsc_dataConstants.SUCCESS)
         if (zk.versionCompare(item.version, zkVersion, true, (arg1: Long, arg2: Long) => arg1 == arg2)) {
           result.setDefaultMNSCache(item.SGServices.asJava)
             .setVersion(item.version)
@@ -73,7 +73,7 @@ object mnscService {
           }
         }
       case None =>
-        result.setCode(Constants.NOT_FOUND)
+        result.setCode(mnsc_dataConstants.NOT_FOUND)
     }
     result
   }
@@ -95,15 +95,15 @@ object mnscService {
       case Some(value) =>
         // if input version is smaller than or equal to cache version,
         if (zk.versionCompare(version, value.version, true, (arg1: Long, arg2: Long) => arg1 <= arg2)) {
-          res.setCode(Constants.SUCCESS)
+          res.setCode(mnsc_dataConstants.SUCCESS)
             .setDefaultMNSCache(value.SGServices.asJava)
             .setVersion(value.version)
         } else {
-          res.setCode(Constants.NOT_MODIFIED)
+          res.setCode(mnsc_dataConstants.NOT_MODIFIED)
         }
       case None =>
         LOG.debug(s"localCache don't exist $appkey|$env")
-        res.setCodeConstants.NOT_FOUND)
+        res.setCode(mnsc_dataConstants.NOT_FOUND)
 
     }
     res

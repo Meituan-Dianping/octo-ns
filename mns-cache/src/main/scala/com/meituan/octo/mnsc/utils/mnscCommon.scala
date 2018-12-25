@@ -23,6 +23,7 @@ package com.meituan.octo.mnsc.utils
 
 import com.meituan.octo.mnsc.remote.zk
 import org.apache.commons.lang3.StringUtils
+import com.meituan.octo.mns.util.ProcessInfoUtil
 import org.slf4j.{Logger, LoggerFactory}
 
 import scala.collection.JavaConverters._
@@ -59,7 +60,8 @@ object mnscCommon {
 
   private var appkeys = List[String]()
 
-  private val appkeysPath = s"$rootPre/prod"
+  private val ENV = ProcessInfoUtil.getAppEnv.toLowerCase
+  private val appkeysPath = s"$rootPre/$ENV"
 
   private def getAppFromZK() = {
     val testAppkeys = System.getProperty("mnscCacheLoadAppkeys4Test")

@@ -112,9 +112,9 @@ int BufferMgr<type>::get(const std::string key, type &val) {
   if (m_data_map->end() != iter) {
     if(NULL==m_data_map){
      pthread_rwlock_unlock(&rwlock);
-			return -1;
-		}
-		val = m_data_map->at(key);
+	 return -1;
+	}
+	val = m_data_map->at(key);
     ret = 0;
   } else {
     ret = -1;

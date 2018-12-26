@@ -16,7 +16,7 @@ class MNSCacheServiceIf {
  public:
   virtual ~MNSCacheServiceIf() {}
   virtual void getMNSCache(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env) = 0;
-  virtual void getMNSCache4HLB(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env) = 0;
+  virtual void getMNSCacheHttp(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env) = 0;
   virtual void getMNSCacheWithVersionCheck(MNSResponse& _return, const MnsRequest& req) = 0;
   virtual void getMNSCacheByAppkeys(MNSBatchResponse& _return, const std::vector<std::string> & appkeys, const std::string& protocol) = 0;
   virtual void getProvidersByIP(MNSResponse& _return, const std::string& ip) = 0;
@@ -53,7 +53,7 @@ class MNSCacheServiceNull : virtual public MNSCacheServiceIf {
   void getMNSCache(MNSResponse& /* _return */, const std::string& /* appkey */, const std::string& /* version */, const std::string& /* env */) {
     return;
   }
-  void getMNSCache4HLB(MNSResponse& /* _return */, const std::string& /* appkey */, const std::string& /* version */, const std::string& /* env */) {
+  void getMNSCacheHttp(MNSResponse& /* _return */, const std::string& /* appkey */, const std::string& /* version */, const std::string& /* env */) {
     return;
   }
   void getMNSCacheWithVersionCheck(MNSResponse& /* _return */, const MnsRequest& /* req */) {
@@ -196,26 +196,26 @@ class MNSCacheService_getMNSCache_presult {
 
 };
 
-typedef struct _MNSCacheService_getMNSCache4HLB_args__isset {
-  _MNSCacheService_getMNSCache4HLB_args__isset() : appkey(false), version(false), env(false) {}
+typedef struct _MNSCacheService_getMNSCacheHttp_args__isset {
+  _MNSCacheService_getMNSCacheHttp_args__isset() : appkey(false), version(false), env(false) {}
   bool appkey;
   bool version;
   bool env;
-} _MNSCacheService_getMNSCache4HLB_args__isset;
+} _MNSCacheService_getMNSCacheHttp_args__isset;
 
-class MNSCacheService_getMNSCache4HLB_args {
+class MNSCacheService_getMNSCacheHttp_args {
  public:
 
-  MNSCacheService_getMNSCache4HLB_args() : appkey(""), version(""), env("") {
+  MNSCacheService_getMNSCacheHttp_args() : appkey(""), version(""), env("") {
   }
 
-  virtual ~MNSCacheService_getMNSCache4HLB_args() throw() {}
+  virtual ~MNSCacheService_getMNSCacheHttp_args() throw() {}
 
   std::string appkey;
   std::string version;
   std::string env;
 
-  _MNSCacheService_getMNSCache4HLB_args__isset __isset;
+  _MNSCacheService_getMNSCacheHttp_args__isset __isset;
 
   void __set_appkey(const std::string& val) {
     appkey = val;
@@ -229,7 +229,7 @@ class MNSCacheService_getMNSCache4HLB_args {
     env = val;
   }
 
-  bool operator == (const MNSCacheService_getMNSCache4HLB_args & rhs) const
+  bool operator == (const MNSCacheService_getMNSCacheHttp_args & rhs) const
   {
     if (!(appkey == rhs.appkey))
       return false;
@@ -239,11 +239,11 @@ class MNSCacheService_getMNSCache4HLB_args {
       return false;
     return true;
   }
-  bool operator != (const MNSCacheService_getMNSCache4HLB_args &rhs) const {
+  bool operator != (const MNSCacheService_getMNSCacheHttp_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const MNSCacheService_getMNSCache4HLB_args & ) const;
+  bool operator < (const MNSCacheService_getMNSCacheHttp_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -251,11 +251,11 @@ class MNSCacheService_getMNSCache4HLB_args {
 };
 
 
-class MNSCacheService_getMNSCache4HLB_pargs {
+class MNSCacheService_getMNSCacheHttp_pargs {
  public:
 
 
-  virtual ~MNSCacheService_getMNSCache4HLB_pargs() throw() {}
+  virtual ~MNSCacheService_getMNSCacheHttp_pargs() throw() {}
 
   const std::string* appkey;
   const std::string* version;
@@ -265,58 +265,58 @@ class MNSCacheService_getMNSCache4HLB_pargs {
 
 };
 
-typedef struct _MNSCacheService_getMNSCache4HLB_result__isset {
-  _MNSCacheService_getMNSCache4HLB_result__isset() : success(false) {}
+typedef struct _MNSCacheService_getMNSCacheHttp_result__isset {
+  _MNSCacheService_getMNSCacheHttp_result__isset() : success(false) {}
   bool success;
-} _MNSCacheService_getMNSCache4HLB_result__isset;
+} _MNSCacheService_getMNSCacheHttp_result__isset;
 
-class MNSCacheService_getMNSCache4HLB_result {
+class MNSCacheService_getMNSCacheHttp_result {
  public:
 
-  MNSCacheService_getMNSCache4HLB_result() {
+  MNSCacheService_getMNSCacheHttp_result() {
   }
 
-  virtual ~MNSCacheService_getMNSCache4HLB_result() throw() {}
+  virtual ~MNSCacheService_getMNSCacheHttp_result() throw() {}
 
   MNSResponse success;
 
-  _MNSCacheService_getMNSCache4HLB_result__isset __isset;
+  _MNSCacheService_getMNSCacheHttp_result__isset __isset;
 
   void __set_success(const MNSResponse& val) {
     success = val;
   }
 
-  bool operator == (const MNSCacheService_getMNSCache4HLB_result & rhs) const
+  bool operator == (const MNSCacheService_getMNSCacheHttp_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const MNSCacheService_getMNSCache4HLB_result &rhs) const {
+  bool operator != (const MNSCacheService_getMNSCacheHttp_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const MNSCacheService_getMNSCache4HLB_result & ) const;
+  bool operator < (const MNSCacheService_getMNSCacheHttp_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _MNSCacheService_getMNSCache4HLB_presult__isset {
-  _MNSCacheService_getMNSCache4HLB_presult__isset() : success(false) {}
+typedef struct _MNSCacheService_getMNSCacheHttp_presult__isset {
+  _MNSCacheService_getMNSCacheHttp_presult__isset() : success(false) {}
   bool success;
-} _MNSCacheService_getMNSCache4HLB_presult__isset;
+} _MNSCacheService_getMNSCacheHttp_presult__isset;
 
-class MNSCacheService_getMNSCache4HLB_presult {
+class MNSCacheService_getMNSCacheHttp_presult {
  public:
 
 
-  virtual ~MNSCacheService_getMNSCache4HLB_presult() throw() {}
+  virtual ~MNSCacheService_getMNSCacheHttp_presult() throw() {}
 
   MNSResponse* success;
 
-  _MNSCacheService_getMNSCache4HLB_presult__isset __isset;
+  _MNSCacheService_getMNSCacheHttp_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
@@ -786,9 +786,9 @@ class MNSCacheServiceClient : virtual public MNSCacheServiceIf {
   void getMNSCache(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env);
   void send_getMNSCache(const std::string& appkey, const std::string& version, const std::string& env);
   void recv_getMNSCache(MNSResponse& _return);
-  void getMNSCache4HLB(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env);
-  void send_getMNSCache4HLB(const std::string& appkey, const std::string& version, const std::string& env);
-  void recv_getMNSCache4HLB(MNSResponse& _return);
+  void getMNSCacheHttp(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env);
+  void send_getMNSCacheHttp(const std::string& appkey, const std::string& version, const std::string& env);
+  void recv_getMNSCacheHttp(MNSResponse& _return);
   void getMNSCacheWithVersionCheck(MNSResponse& _return, const MnsRequest& req);
   void send_getMNSCacheWithVersionCheck(const MnsRequest& req);
   void recv_getMNSCacheWithVersionCheck(MNSResponse& _return);
@@ -815,7 +815,7 @@ class MNSCacheServiceProcessor : public ::apache::thrift::TProcessor {
  private:
   std::map<std::string, void (MNSCacheServiceProcessor::*)(int32_t, apache::thrift::protocol::TProtocol*, apache::thrift::protocol::TProtocol*, void*)> processMap_;
   void process_getMNSCache(int32_t seqid, apache::thrift::protocol::TProtocol* iprot, apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_getMNSCache4HLB(int32_t seqid, apache::thrift::protocol::TProtocol* iprot, apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getMNSCacheHttp(int32_t seqid, apache::thrift::protocol::TProtocol* iprot, apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getMNSCacheWithVersionCheck(int32_t seqid, apache::thrift::protocol::TProtocol* iprot, apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getMNSCacheByAppkeys(int32_t seqid, apache::thrift::protocol::TProtocol* iprot, apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getProvidersByIP(int32_t seqid, apache::thrift::protocol::TProtocol* iprot, apache::thrift::protocol::TProtocol* oprot, void* callContext);
@@ -824,7 +824,7 @@ class MNSCacheServiceProcessor : public ::apache::thrift::TProcessor {
   MNSCacheServiceProcessor(boost::shared_ptr<MNSCacheServiceIf> iface) :
     iface_(iface) {
     processMap_["getMNSCache"] = &MNSCacheServiceProcessor::process_getMNSCache;
-    processMap_["getMNSCache4HLB"] = &MNSCacheServiceProcessor::process_getMNSCache4HLB;
+    processMap_["getMNSCacheHttp"] = &MNSCacheServiceProcessor::process_getMNSCacheHttp;
     processMap_["getMNSCacheWithVersionCheck"] = &MNSCacheServiceProcessor::process_getMNSCacheWithVersionCheck;
     processMap_["getMNSCacheByAppkeys"] = &MNSCacheServiceProcessor::process_getMNSCacheByAppkeys;
     processMap_["getProvidersByIP"] = &MNSCacheServiceProcessor::process_getProvidersByIP;
@@ -870,14 +870,14 @@ class MNSCacheServiceMultiface : virtual public MNSCacheServiceIf {
     }
   }
 
-  void getMNSCache4HLB(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env) {
+  void getMNSCacheHttp(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env) {
     size_t sz = ifaces_.size();
     for (size_t i = 0; i < sz; ++i) {
       if (i == sz - 1) {
-        ifaces_[i]->getMNSCache4HLB(_return, appkey, version, env);
+        ifaces_[i]->getMNSCacheHttp(_return, appkey, version, env);
         return;
       } else {
-        ifaces_[i]->getMNSCache4HLB(_return, appkey, version, env);
+        ifaces_[i]->getMNSCacheHttp(_return, appkey, version, env);
       }
     }
   }

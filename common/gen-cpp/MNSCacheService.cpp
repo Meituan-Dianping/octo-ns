@@ -194,7 +194,7 @@ uint32_t MNSCacheService_getMNSCache_presult::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t MNSCacheService_getMNSCache4HLB_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t MNSCacheService_getMNSCacheHttp_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -250,9 +250,9 @@ uint32_t MNSCacheService_getMNSCache4HLB_args::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t MNSCacheService_getMNSCache4HLB_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t MNSCacheService_getMNSCacheHttp_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("MNSCacheService_getMNSCache4HLB_args");
+  xfer += oprot->writeStructBegin("MNSCacheService_getMNSCacheHttp_args");
   xfer += oprot->writeFieldBegin("appkey", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString(this->appkey);
   xfer += oprot->writeFieldEnd();
@@ -267,9 +267,9 @@ uint32_t MNSCacheService_getMNSCache4HLB_args::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t MNSCacheService_getMNSCache4HLB_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t MNSCacheService_getMNSCacheHttp_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("MNSCacheService_getMNSCache4HLB_pargs");
+  xfer += oprot->writeStructBegin("MNSCacheService_getMNSCacheHttp_pargs");
   xfer += oprot->writeFieldBegin("appkey", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString((*(this->appkey)));
   xfer += oprot->writeFieldEnd();
@@ -284,7 +284,7 @@ uint32_t MNSCacheService_getMNSCache4HLB_pargs::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t MNSCacheService_getMNSCache4HLB_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t MNSCacheService_getMNSCacheHttp_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -324,11 +324,11 @@ uint32_t MNSCacheService_getMNSCache4HLB_result::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t MNSCacheService_getMNSCache4HLB_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t MNSCacheService_getMNSCacheHttp_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("MNSCacheService_getMNSCache4HLB_result");
+  xfer += oprot->writeStructBegin("MNSCacheService_getMNSCacheHttp_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -340,7 +340,7 @@ uint32_t MNSCacheService_getMNSCache4HLB_result::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t MNSCacheService_getMNSCache4HLB_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t MNSCacheService_getMNSCacheHttp_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1114,18 +1114,18 @@ void MNSCacheServiceClient::recv_getMNSCache(MNSResponse& _return)
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getMNSCache failed: unknown result");
 }
 
-void MNSCacheServiceClient::getMNSCache4HLB(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env)
+void MNSCacheServiceClient::getMNSCacheHttp(MNSResponse& _return, const std::string& appkey, const std::string& version, const std::string& env)
 {
-  send_getMNSCache4HLB(appkey, version, env);
-  recv_getMNSCache4HLB(_return);
+  send_getMNSCacheHttp(appkey, version, env);
+  recv_getMNSCacheHttp(_return);
 }
 
-void MNSCacheServiceClient::send_getMNSCache4HLB(const std::string& appkey, const std::string& version, const std::string& env)
+void MNSCacheServiceClient::send_getMNSCacheHttp(const std::string& appkey, const std::string& version, const std::string& env)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("getMNSCache4HLB", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getMNSCacheHttp", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  MNSCacheService_getMNSCache4HLB_pargs args;
+  MNSCacheService_getMNSCacheHttp_pargs args;
   args.appkey = &appkey;
   args.version = &version;
   args.env = &env;
@@ -1136,7 +1136,7 @@ void MNSCacheServiceClient::send_getMNSCache4HLB(const std::string& appkey, cons
   oprot_->getTransport()->flush();
 }
 
-void MNSCacheServiceClient::recv_getMNSCache4HLB(MNSResponse& _return)
+void MNSCacheServiceClient::recv_getMNSCacheHttp(MNSResponse& _return)
 {
 
   int32_t rseqid = 0;
@@ -1156,12 +1156,12 @@ void MNSCacheServiceClient::recv_getMNSCache4HLB(MNSResponse& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("getMNSCache4HLB") != 0) {
+  if (fname.compare("getMNSCacheHttp") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  MNSCacheService_getMNSCache4HLB_presult result;
+  MNSCacheService_getMNSCacheHttp_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -1171,7 +1171,7 @@ void MNSCacheServiceClient::recv_getMNSCache4HLB(MNSResponse& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getMNSCache4HLB failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getMNSCacheHttp failed: unknown result");
 }
 
 void MNSCacheServiceClient::getMNSCacheWithVersionCheck(MNSResponse& _return, const MnsRequest& req)
@@ -1506,38 +1506,38 @@ void MNSCacheServiceProcessor::process_getMNSCache(int32_t seqid, ::apache::thri
   }
 }
 
-void MNSCacheServiceProcessor::process_getMNSCache4HLB(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void MNSCacheServiceProcessor::process_getMNSCacheHttp(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("MNSCacheService.getMNSCache4HLB", callContext);
+    ctx = this->eventHandler_->getContext("MNSCacheService.getMNSCacheHttp", callContext);
   }
-  apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "MNSCacheService.getMNSCache4HLB");
+  apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "MNSCacheService.getMNSCacheHttp");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "MNSCacheService.getMNSCache4HLB");
+    this->eventHandler_->preRead(ctx, "MNSCacheService.getMNSCacheHttp");
   }
 
-  MNSCacheService_getMNSCache4HLB_args args;
+  MNSCacheService_getMNSCacheHttp_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "MNSCacheService.getMNSCache4HLB", bytes);
+    this->eventHandler_->postRead(ctx, "MNSCacheService.getMNSCacheHttp", bytes);
   }
 
-  MNSCacheService_getMNSCache4HLB_result result;
+  MNSCacheService_getMNSCacheHttp_result result;
   try {
-    iface_->getMNSCache4HLB(result.success, args.appkey, args.version, args.env);
+    iface_->getMNSCacheHttp(result.success, args.appkey, args.version, args.env);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "MNSCacheService.getMNSCache4HLB");
+      this->eventHandler_->handlerError(ctx, "MNSCacheService.getMNSCacheHttp");
     }
 
     apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("getMNSCache4HLB", apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getMNSCacheHttp", apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -1546,17 +1546,17 @@ void MNSCacheServiceProcessor::process_getMNSCache4HLB(int32_t seqid, ::apache::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "MNSCacheService.getMNSCache4HLB");
+    this->eventHandler_->preWrite(ctx, "MNSCacheService.getMNSCacheHttp");
   }
 
-  oprot->writeMessageBegin("getMNSCache4HLB", apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getMNSCacheHttp", apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "MNSCacheService.getMNSCache4HLB", bytes);
+    this->eventHandler_->postWrite(ctx, "MNSCacheService.getMNSCacheHttp", bytes);
   }
 }
 

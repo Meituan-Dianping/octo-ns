@@ -38,22 +38,23 @@
     <MnsHost>
         <online>
             <beijing>
+            127.0.0.1:2181
             </beijing>
             <shanghai>
+            127.0.0.1:2181
             </shanghai>
         </online>
         <offline>
             <beijing>
-                <!-- please replace zk list using your new address-->
-                127.0.0.1:2181
+            127.0.0.1:2181
             </beijing>
             <shanghai>
-                127.0.0.1:2181
+            127.0.0.1:2181
             </shanghai>
         </offline>
     </MnsHost>
     <!-- MNSCache appkey -->
-    <MNSCacheAppkey>com.sankuai.inf.mnsc</MNSCacheAppkey>
+    <MNSCacheAppkey>com.meituan.octo.mnsc</MNSCacheAppkey>
     <!-- 是否打开selfCheck接口 -->
     <OpenSelfCheck>open</OpenSelfCheck>
     <!-- 是否打开MNSCache开关 -->

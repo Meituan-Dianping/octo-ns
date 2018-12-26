@@ -27,7 +27,8 @@ Maven 3.2.x+: [downloads](https://maven.apache.org/download.cgi), [settings](htt
 | 库依赖 | 版本 | 备注 |
 | ------ | ------ | ------ |
 | muduo | v1.1.0 | 有http服务补丁，见 patch/0001-add-patch-for-http.patch |
-| ZooKeeper | v3.4.6 |  |
+| zookeeper | v3.4.6 |  |
+| thrift | v0.9.3 |依赖的java组件请配置对应程序执行路径，缺省路径/usr/local/bin|
 
 
 
@@ -35,7 +36,8 @@ Maven 3.2.x+: [downloads](https://maven.apache.org/download.cgi), [settings](htt
 ---
 
 > [见ZooKeeper安装及部署](https://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html)  
-> 记录部署的ZooKeeper单机IP或集群IP列表及端口.
+> [ZooKeeper数据初始化](https://github.com/Meituan-Dianping/octo-ns/tree/master/docs/zookeeper_data_build.md)  
+> 记录部署的ZooKeeper单机IP或集群IP列表及端口  
 
 ### 项目下载
 ---
@@ -52,11 +54,11 @@ mvn clean install -Dmaven.test.skip=true
 
 ### NSC部署
 ---
-依赖构建  
-[Dorado依赖构建](https://github.com/Meituan-Dianping/octo-rpc/blob/master/dorado/dorado-doc/manual-developer/Compile.md)     
+依赖构建     
 [idl-common依赖构建](https://github.com/Meituan-Dianping/octo-ns/tree/master/common/idl-mns/idl-common/Compile.md)      
 [idl-mnsc依赖构建](https://github.com/Meituan-Dianping/octo-ns/tree/master/common/idl-mns/idl-mnsc/Compile.md)    
-[mns-invoker依赖构建](https://github.com/Meituan-Dianping/octo-ns/tree/master/mns-invoker/docs/Compile.md)      
+[mns-invoker依赖构建](https://github.com/Meituan-Dianping/octo-ns/tree/master/mns-invoker/docs/Compile.md)  
+[Dorado依赖构建](https://github.com/Meituan-Dianping/octo-rpc/blob/master/dorado/dorado-doc/manual-developer/Compile.md)      
 
 
 部署运行 

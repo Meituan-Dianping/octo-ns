@@ -240,6 +240,7 @@ int ZkClient::ZkWgetChildren(const ZkWGetChildrenRequestPtr &request_ptr, ZkWGet
       response_ptr->data.push_back(data);
     }
   }
+  deallocate_String_vector(&stat);	
   return ret;
 }
 

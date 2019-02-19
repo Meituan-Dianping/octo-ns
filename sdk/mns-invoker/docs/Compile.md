@@ -1,5 +1,5 @@
 
-# mns-invoker 源码编译说明
+# MnsInvoker 源码编译说明
 
 ## 1.下载工程
 ```

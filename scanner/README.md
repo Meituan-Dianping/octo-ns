@@ -1,11 +1,11 @@
-# OCTO Scanner 介绍
+# OCTOScanner 介绍
 
 ## 背景描述
 Scaner 是 OCTO 服务治理体系内的一个独立的服务健康检查子系统.
 
 开发语言: Java
 
-运行环境要求: JDK 1.8及以上、maven3、zookeeper
+运行环境要求: JDK 1.8及以上、Maven3、ZooKeeper
 
 组件依赖: [Dorado](https://github.com/Meituan-Dianping/octo-rpc/tree/master/dorado)
 
@@ -36,7 +36,7 @@ Scanner的扫描线程分为两类，正常节点和异常节点分为两个线�
 ![状态转换图](./docs/img/providerstatus.png)
 
 ## 快速上手
-### 编译安装dorado到本地maven仓库
+### 编译安装Dorado到本地Maven仓库
 参考[Dorado 源码编译说明](https://github.com/Meituan-Dianping/octo-rpc/blob/master/dorado/dorado-doc/manual-developer/Compile.md)
 
 ### 打包运行Scanner

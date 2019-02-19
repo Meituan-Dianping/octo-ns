@@ -1,8 +1,8 @@
 # 1 概述说明  
-mns-sdk是octo-ns的c++侧轻量级sdk，提供服务注册与注销，服务发现，基础工具类等功能。
+MnsSDK是OCTONS的C++侧轻量级SDK，提供服务注册与注销，服务发现，基础工具类等功能。
 # 2 服务注册和发现 
 ## 2.1 初始化  
-进行sdk的初始化。
+进行SDK的初始化。
 
 ```
 ／*
@@ -16,7 +16,7 @@ int InitMNS(const std::string &mns_path, const double &sec,
 ```
 ## 2.2 服务注册
 ### 描述
-用于注册thrift 或 http协议的服务节点。
+用于注册Thrift 或 HTTP协议的服务节点。
 
 ```
 ／*
@@ -50,7 +50,7 @@ int8_t StartSvr(const std::string &str_appkey,
 ```
 
 ### 请求示例
-注册一个appkey名称为"com.test.appkey"，端口号是16888，server type是0（thrift），协议类型为thrift。
+注册一个AppKey名称为"com.test.appkey"，端口号是16888，server type是0（thrift），协议类型为thrift。
 
 ```
   const std::string appkey = "com.test.appkey"；
@@ -149,7 +149,7 @@ int8_t AddUpdateSvrListCallback(const std::string &str_svr_appkey,
                                 std::string *p_err_info);
 ~~~
 ### 请求示例
-注册一个appkey名称为"com.test.appkey"，端口号是16888，server type是0（thrift），协议类型为thrift。
+注册一个AppKey名称为"com.test.appkey"，端口号是16888，server type是0（thrift），协议类型为thrift。
 
 ```
  void JobList(const vector<meituan_mns::SGService> &vec_add,
@@ -179,7 +179,7 @@ int8_t AddUpdateSvrListCallback(const std::string &str_svr_appkey,
 ### NOTE
 
 > - SGService里面的appkey，ip，envir，port，protocol字段一般不会有改变，以下字段的变更会触发modifiedList：status，weight，fweight，version，role，serviceInfo。
-> - mns-sdk对于所有的服务列表监听器只起了一个线程去触发回调callback，因此，强烈建议用户不要在监听器的chaned()方法中做有阻塞的操作，否则会阻塞所有的监听器。
+> - MnsSDK对于所有的服务列表监听器只起了一个线程去触发回调CallBack，因此，强烈建议用户不要在监听器的chaned()方法中做有阻塞的操作，否则会阻塞所有的监听器。
 > - 可以对同一份服务列表添加多个监听器。
  
 

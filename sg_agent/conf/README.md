@@ -2,7 +2,7 @@
   
 #### conf.json
  
-   * SG_Agent使用Cthrift作为rpc server，该配置型定义了使用Cthrift Server时的配置.
+   * SGAgent使用Cthrift作为rpc server，该配置型定义了使用Cthrift Server时的配置.
    * 参数介绍
 
    参数名  | 参数类型 | 描述

@@ -1,10 +1,10 @@
 # 1 概述说明
-Mns-Invoker是OCTO-NS的轻量级SDK，提供服务注册与注销，服务发现，基础工具类等功能。
+MnsInvoker是OCTONS的轻量级SDK，提供服务注册与注销，服务发现，基础工具类等功能。
 
 # 2 服务注册和发现
 ## 2.1 服务注册
 ### 描述
-用于注册thrift和http协议的服务节点 
+用于注册Thrift和HTTP协议的服务节点 
 
 ```
 public static void registServiceWithCmd(int uptCmd, SGService sgService) throws TException
@@ -49,7 +49,7 @@ private static SGService getDefaultSGService(final String appkey, final int port
 ```
 ## 2.2 服务注销
 ### 描述
-用于注销thrift和http协议的服务节点
+用于注销Thrift和HTTP协议的服务节点
 
 ```
 public static void unRegisterService(SGService sgService) throws TException
@@ -152,7 +152,7 @@ int  | 成功返回0，失败返回-1
 【NOTE】
 
 * SGService里面的appkey，ip，envir，port，protocol字段一般不会有改变，以下字段的变更会触发modifiedList：status,weight,fweight,version,role,serviceInfo
-* mns-invoker对于所有的服务列表监听器只起了一个线程去触发回调callback，因此，强烈建议用户不要在监听器的chaned()方法中做有阻塞的操作，否则会阻塞所有的监听器。
+* MnsInvoker对于所有的服务列表监听器只起了一个线程去触发回调callback，因此，强烈建议用户不要在监听器的chaned()方法中做有阻塞的操作，否则会阻塞所有的监听器。
 * 可以对同一份服务列表添加多个监听器，但监听器必须是不同的（hashCode不同）。
 * 强烈建议用户不要自行修改ProtocolRequest和IServiceListChangeListener的hashCode和equals方法。
 
@@ -259,7 +259,7 @@ public static boolean isLocalHostOnline()
 参数类型 | 描述
 ------------- | ------------
 boolean  | true为线上环境，即prod或stage，其他dev、ppe、test均为线下环境
-## 4.6 查询Mns的zookeeper地址
+## 4.6 查询MNS的ZooKeeper地址
 ### 描述
 查询本机octo.cfg配置文件里面记录的服务注册中心mns的zookeeper地址
 
@@ -271,7 +271,7 @@ public static String getMnsZKUrl()
 参数类型 | 描述
 ------------- | ------------
 String  | ip:port连接的字符串，如配置文件不存在返回null。
-## 4.7 查询Mnsc服务的域名
+## 4.7 查询MNSC服务的域名
 ### 描述
 查询本机octo.cfg配置文件记录的mnsc服务域名
 
@@ -283,7 +283,7 @@ public static String getMnsZKUrl()
 ------------- | ------------
 String  | 以http://开头的域名，如配置文件不存在返回null。
 
-## 4.8 查询idc文件的存储目录
+## 4.8 查询IDC文件的存储目录
 ### 描述
 查询本机octo.cfg配置文件记录的idc文件位置
 
@@ -295,7 +295,7 @@ public static String getIdcPath()
 ------------- | ------------
 String  | idc文件所在位置，如配置文件不存在返回null。
 
-## 4.9 查询sg_agent代理的端口号
+## 4.9 查询SGAgent代理的端口号
 ### 描述
 查询本机octo.cfg配置文件记录的sg_agent端口号
 
@@ -306,7 +306,7 @@ public static int getSgagentPort()
 参数类型 | 描述
 ------------- | ------------
 int  | 端口号
-## 4.10 查询sg_agent代理的appkey
+## 4.10 查询SGAgent代理的AppKey
 ### 描述
 查询本机octo.cfg配置文件记录的sg_agent的appkey
 

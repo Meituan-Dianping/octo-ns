@@ -1,6 +1,6 @@
 ##  Naming Service(NS)   
   
-  快速进行Java环境配置、依赖管理以及ZooKeeper、项目下载和配置、NSC、NSInvoker、SGAgent四部分部署即可进行服务注册、服务发现功能，下面给出安装部署说明.
+  快速进行Java环境配置、依赖管理以及ZooKeeper、项目下载和配置、NSC、NS-Invoker、SGAgent四部分部署即可进行服务注册、服务发现功能，下面给出安装部署说明.
   
   
 | 步骤| 描述 | 备注 |
@@ -132,11 +132,11 @@ INFO  - out: {
 
 
 
-##### 使用C++ NSSdk发起服务注册/服务发现示例
+##### 使用C++ NS-Sdk发起服务注册/服务发现示例
 ---
-见C++ [NSSdk示例说明](../sdk/mns-sdk/ReadMe.md)
+见C++ [NS-Sdk示例说明](../sdk/mns-sdk/ReadMe.md)
  
-##### 使用Java NSInvoker发起服务注册/服务发现示例
+##### 使用Java NS-Invoker发起服务注册/服务发现示例
 添加依赖
 
 ~~~
@@ -179,7 +179,7 @@ SGService service = new SGService();
 MnsInvoker.registServiceWithCmd(1,service);//增量模式注册
 ~~~
 
-##### 使用NSInvoker发起服务发现流程
+##### 使用NS-Invoker发起服务发现流程
 下面是发现上述服务的例子
 
 ~~~

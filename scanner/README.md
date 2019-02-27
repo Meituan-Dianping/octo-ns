@@ -1,4 +1,4 @@
-# OCTOScanner 介绍
+# OCTO-Scanner 介绍
 
 ## 背景描述
 Scaner 是 OCTO 服务治理体系内的一个独立的服务健康检查子系统.

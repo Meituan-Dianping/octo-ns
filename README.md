@@ -1,15 +1,15 @@
-# OCTONS
+# OCTO-NS
 
 ## 背景及概念
 
- OCTONS
+ OCTO-NS
  是美团OCTO服务治理体系中负责命名服务的系列模块，包括[C++ SDK](sdk/mns-sdk/docs/mns_sdk_api.md)、[Java
  SDK](sdk/mns-invoker)、
  [基础代理SGAgent](sg_agent)、[命名服务缓存NSC](nsc)、[健康检查服务Scanner](scanner)、[ZooKeeper](https://zookeeper.apache.org/)
- ，搭配管理平台 [OCTOPortal](https://github.com/Meituan-Dianping/octo-portal) 用户能够便捷的进行服务运营交互。
+ ，搭配管理平台 [OCTO-Portal](https://github.com/Meituan-Dianping/octo-portal) 用户能够便捷的进行服务运营交互。
 
- OCTONS
- 基于服务描述信息（tags+weight）实现服务注册/发现、路由分组、负载均衡、健康检测等功能，利用这些服务治理功能用户可以专注于业务逻辑开发、能够追踪线上服务状态、快速处置异常风险。OCTONS提升了业务对于服务的运营能力，其总体架构图如下:
+ OCTO-NS
+ 基于服务描述信息（tags+weight）实现服务注册/发现、路由分组、负载均衡、健康检测等功能，利用这些服务治理功能用户可以专注于业务逻辑开发、能够追踪线上服务状态、快速处置异常风险。OCTO-NS提升了业务对于服务的运营能力，其总体架构图如下:
 
 <div align=center> <img src="./docs/image/ns.png" width="500"> </div align=center>
 
@@ -51,12 +51,12 @@
 
 * 健康检查(Health Check)
 
-  服务节点的端口/进程存活状态的检查。OCTONS体系中通过Scanner执行健康扫描，并更新服务描述信息到注册中心。
+  服务节点的端口/进程存活状态的检查。OCTO-NS体系中通过Scanner执行健康扫描，并更新服务描述信息到注册中心。
 
 ## 架构特点
 * 模块解耦功能拆分
 
-  通信框架(C++版本whale、Java版本Dorado)、服务治理代理(SGAgent)、健康检查服务(Scanner)、服务治理平台(OCTOPortal)。
+  通信框架(C++版本whale、Java版本Dorado)、服务治理代理(SGAgent)、健康检查服务(Scanner)、服务治理平台(OCTO-Portal)。
 
 * 代理模式轻量化框架
 
@@ -77,14 +77,14 @@
 
 * 高可用
 
-   调用链容灾：OCTONS各组件的本地缓存机制，提升了整体系统的容灾能力。链路中后台的某个组件发生故障时，可以使用缓存正常提供服务治理功能。
+   调用链容灾：OCTO-NS各组件的本地缓存机制，提升了整体系统的容灾能力。链路中后台的某个组件发生故障时，可以使用缓存正常提供服务治理功能。
 
    哨兵模式：本地SGAgent不可用时，降级（FallBack）到哨兵集群进行服务治理。
 
 ##  架构介绍
 
 <div align=center> <img src="./docs/image/ns_components.png" width="500"> </div align=center>
-   OCTONS由sdk、SGAgent、NSC、Scanner和ZooKeeper组成，使用OCTOPortal管理端实现可视化服务营运操作，例如更改服务提供者状态、调整权重。服务提供者启动后，通信框架主动发起注册操作，上报服务描述信息接入OCTONS。接下来分模块对OCTONS进行介绍。
+   OCTO-NS由sdk、SGAgent、NSC、Scanner和ZooKeeper组成，使用OCTO-Portal管理端实现可视化服务营运操作，例如更改服务提供者状态、调整权重。服务提供者启动后，通信框架主动发起注册操作，上报服务描述信息接入OCTO-NS。接下来分模块对OCTO-NS进行介绍。
 
 
 ### 服务治理代理SGAgent
@@ -105,7 +105,7 @@
 
 ###  缓存服务NSC
 
- 缓存注册到OCTONS的服务描述信息，一方面提供批量服务数据缓存与预处理功能，提升服务发现性能；另一方面增强服务治理链路的容灾能力，本地SGAgent不可用的场景下该模块通过HTTP形式提供远程哨兵服务列表。
+ 缓存注册到OCTO-NS的服务描述信息，一方面提供批量服务数据缓存与预处理功能，提升服务发现性能；另一方面增强服务治理链路的容灾能力，本地SGAgent不可用的场景下该模块通过HTTP形式提供远程哨兵服务列表。
 ###  服务健康Scanner
 
   健康检查模块负责实时检查注册中心的服务提供者健康状况，一旦发现服务提供者不可用就将其置为未启动状态，及时摘除流量；当服务提供者恢复正常时，Scanner会及时将服务提供者的状态置为正常状态，恢复流量。服务整个生命周期内，OCTO-NS利用Scanner实现自动化的流量摘除和恢复，无需业务手动介入。为了提高检查的准确性，Scanner支持OCTO自定义的心跳协议来进行应用层检查，OCTO体系内的通信框架默认支持，无需额外配置。
@@ -114,14 +114,14 @@
 
 * 服务注册
 
-   业务进程启动后，通信框架发起服务注册，依赖SGAgent上报服务描述信息到注册中心。本地SGAgent失效时，SDK通过NSC服务获取远程SGAgent哨兵机器列表信息，注册请求FallBack到哨兵集群完成整个流程。服务提供者服务描述信息数据存入注册中心后，可从OCTOPortal管理页面进行查阅和修改。
+   业务进程启动后，通信框架发起服务注册，依赖SGAgent上报服务描述信息到注册中心。本地SGAgent失效时，SDK通过NSC服务获取远程SGAgent哨兵机器列表信息，注册请求FallBack到哨兵集群完成整个流程。服务提供者服务描述信息数据存入注册中心后，可从OCTO-Portal管理页面进行查阅和修改。
 
 
 <div align=center> <img src="./docs/image/registry_sucess.png" width="500"> </div align=center>
 
 * 服务发现
 
-  OCTONS支持基于HTTP和RPC的服务发现，服务消费者可通过调用SGAgent服务发现接口获取服务提供者列表。SGAgent会优先从NSC
+  OCTO-NS支持基于HTTP和RPC的服务发现，服务消费者可通过调用SGAgent服务发现接口获取服务提供者列表。SGAgent会优先从NSC
   进行服务发现，从NSC服务发现失败时会降级从ZooKeeper获取服务提供者数据。
 
 * 健康检查

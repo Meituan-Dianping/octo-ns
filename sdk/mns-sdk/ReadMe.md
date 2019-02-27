@@ -1,8 +1,8 @@
 # 构建
 
-MnsSDK 以静态链接方式编译
+MNS-SDK 以静态链接方式编译
 
-MnsSDK 依赖下列组件:
+MNS-SDK 依赖下列组件:
 
 * [muduo](https://github.com/chenshuo/muduo): 网络工具库
 * [boost](https://github.com/boostorg/boost): 基础的C++工具库
@@ -53,11 +53,11 @@ CentOS通常需要安装EPEL，否则许多软件包默认不可用：
 thrift一般很少有yum源，请自行参照官方使用文档安装
 ```
 
-安装 [OCTONS]():  
-[参照OCTONS文档安装环境](./../../docs/ns-quick-start.md)
+安装 [OCTO-NS]():  
+[参照OCTO-NS文档安装环境](./../../docs/ns-quick-start.md)
 
 
-### 使用 build.sh 编译 MnsSDK 
+### 使用 build.sh 编译 MNS-SDK 
 ```bash 
 > git clone https://github.com/Meituan-Dianping/octo-ns.git
 ```

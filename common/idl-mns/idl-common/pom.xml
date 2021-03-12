@@ -12,7 +12,7 @@
             <groupId>org.apache.thrift</groupId>
             <artifactId>libthrift</artifactId>
             <!-- 建议与你生成源码的Thrift版本保持一致! -->
-            <version>0.9.3</version>
+            <version>0.14.0</version>
         </dependency>
     </dependencies>
     <build>

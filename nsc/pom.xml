@@ -16,7 +16,7 @@
 
     <properties>
         <jackson.version>2.9.5</jackson.version>
-        <log4j.version>2.7</log4j.version>
+        <log4j.version>2.15.0</log4j.version>
         <scala.maven.version>3.1.0</scala.maven.version>
         <scala.version>2.10.7</scala.version>
         <slick.version>2.1.0</slick.version>
